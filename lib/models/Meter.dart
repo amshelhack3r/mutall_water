@@ -1,4 +1,6 @@
-class Meter{
+import 'package:equatable/equatable.dart';
+
+class Meter extends Equatable{
   int primary;
   String name;
   String number;
@@ -27,4 +29,8 @@ class Meter{
   String toString() {
     return 'Meter{primary: $primary, name: $name, number: $number, type: $type}';
   }
+
+  @override
+  // TODO: implement props
+  List<Object> get props => [primary];
 }
