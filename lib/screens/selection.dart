@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mutall_water/screens/home.dart';
-import 'package:mutall_water/util/db.dart';
 import '../util/fetch.dart';
 
 class Selection extends StatelessWidget {
@@ -28,17 +27,12 @@ class Selection extends StatelessWidget {
            RaisedButton(
              child: Text("ELECTRICITY"),
              onPressed: (){
-               DatabaseProvider provider =new DatabaseProvider();
-               print(provider.queryMeters('stima'));
                 Navigator.push(context, MaterialPageRoute(builder: (context) =>Home('stima')));
              },
            ),
            RaisedButton(
              child: Text("WATER"),
              onPressed: (){
-               DatabaseProvider provider = new DatabaseProvider();
-               print(provider.queryMeters('water'));
-              
                  Navigator.push(context, MaterialPageRoute(builder: (context) =>Home('water')));
              },
            )
