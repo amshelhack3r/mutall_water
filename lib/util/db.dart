@@ -41,16 +41,14 @@ class DatabaseProvider {
       return meter;
   }
 
-  Future<List<Meter>> queryMeters(String type) async {
+  Future<List<Meter>> queryMeters() async {
     await init();
     List<Meter> meters = [];
-    List<Map> maps = await database.query(TABLE_NAME, columns: ['pk', 'name', 'num', 'type'], where: 'type = ?', whereArgs: [type]);
-     print(maps);
+    List<Map> maps = await database.query(TABLE_NAME, columns: ['pk', 'name', 'num', 'type']);
     if (maps.length > 0) {
       for (var meter in maps) {
         meters.add(Meter.fromMap(meter));
       }
-      print(meters);
       return meters;
     }
     return null;
