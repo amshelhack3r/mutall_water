@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:mutall_water/State/ListProvider.dart';
 import 'package:mutall_water/models/Input.dart';
 import 'package:mutall_water/util/fetch.dart';
+import 'package:provider/provider.dart';
 import '../models/Meter.dart';
 import 'package:http/http.dart' as http;
 
@@ -75,7 +77,7 @@ class ReadingInput extends StatelessWidget {
                           backgroundColor: Colors.greenAccent[400],
                           textColor: Colors.white,
                           fontSize: 16.0);
-
+                      Provider.of<ListProvider>(context).removeMeter(meter);
                       Navigator.pop(context);
                     } else {
                       Fluttertoast.showToast(
